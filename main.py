@@ -39,10 +39,21 @@ while i == 0: # Main Game Loop
       print('Error. Please Try Again') 
   print('')
 
-
-
   if play == '3': # Exit Option
     quit()
-  else
+  
+  colours = ['r', 'o', 'y', 'g', 'b', 'k', 'p', 'w'] # Colour options for code
+
+  code = random.sample(colours, 5) # Code sampled from colour options without replacement
+
+  guess = input ('Code Guess: ')
+
+  guess = list(guess) # Turn guess into a list
+
+  print(guess) # Test Print
+  print(code)
+
+
+
 
   
