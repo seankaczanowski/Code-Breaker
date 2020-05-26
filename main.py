@@ -46,9 +46,17 @@ while i == 0: # Main Game Loop
 
   code = random.sample(colours, 5) # Code sampled from colour options without replacement
 
+  print('') # Simple graphic to show colour codes
+  print('Colours')
+  print('-------')
+  print('(R)ed, (O)range, (Y)ellow, (G)reen,')
+  print('(B)lue, Blac(K), (P)ink, (W)hite')
+  print('')
+  
   guess = input ('Code Guess: ')
 
   guess = list(guess) # Turn guess into a list
+
 
   print(guess) # Test Print
   print(code)
