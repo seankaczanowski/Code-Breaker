@@ -44,7 +44,7 @@ while i == 0: # Main Game Loop
   
   colours = ['r', 'o', 'y', 'g', 'b', 'k', 'p', 'w'] # Colour options for code
 
-  code = random.sample(colours, 5) # Code sampled from colour options without replacement
+  code = random.sample(colours, 5) # Code list sampled from colour options without replacement
 
   print('') # Simple graphic to show colour codes
   print('Colours')
@@ -55,11 +55,18 @@ while i == 0: # Main Game Loop
   
   guess = input ('Code Guess: ')
 
-  guess = list(guess) # Turn guess into a list
-
+  guess = list(guess) # Turn guess string into a list
 
   print(guess) # Test Print
   print(code)
+
+  # Test for how many colours guessed are in the code but not necesarrily in the correct place
+  set_guess = set(guess)
+  set_code = set(code)
+  common_colours = set_guess & set_code
+  print(list(common_colours))
+      
+
 
 
 
