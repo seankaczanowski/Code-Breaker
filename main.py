@@ -41,10 +41,6 @@ while i == 0: # Main Game Loop
 
   if play == '3': # Exit Option
     quit()
-  
-  colours = ['r', 'o', 'y', 'g', 'b', 'k', 'p', 'w'] # Colour options for code
-
-  code = random.sample(colours, 5) # Code list sampled from colour options without replacement
 
   print('') # Simple graphic to show colour codes
   print('Colours')
@@ -53,20 +49,30 @@ while i == 0: # Main Game Loop
   print('(B)lue, Blac(K), (P)ink, (W)hite')
   print('')
   
-  guess = list(input('Code Guess: '))
-
-  print('')
-
-  result = [] # List to be displayed on gameboard
-
-  for x, y in zip(code, guess): # Determine whether the guess is correct at each place in the code
-    if x == y:
-      result.append(x)
-    else:
-      result.append('-')
-
-  set_guess = set(guess)
-  set_code = set(code)
-  common_colours = set_guess & set_code # Determines how many of the colours in the guess are in the code but not necessarily in the correct place
   
-  print(' '.join(result) + ' ' + str(len(common_colours))) # Gameboard result showing the correct/incorrect colour guesses and the number of colours that were guessed that are in the code
+  colours = ['r', 'o', 'y', 'g', 'b', 'k', 'p', 'w'] # Colour options for code
+
+  code = random.sample(colours, 5) # Code list sampled from colour options without replacement
+  
+  guess = [] # Empty list for guess
+  while code != guess: # Game loop until guess = code
+
+    guess = list((input('Code Guess: '))
+
+    print('')
+
+    result = [] # List to be displayed on gameboard
+
+    for x, y in zip(code, guess): # Determine whether the guess is correct at each place in the code
+      if x == y:
+        result.append(x)
+      else:
+        result.append('-')
+
+    set_guess = set(guess)
+    set_code = set(code)
+    common_colours = set_guess & set_code # Determines how many of the colours in the guess are in the code but not necessarily in the correct place
+  
+    print(' ' .join(guess))
+    print(' '.join(result) + ' ' + str(len(common_colours))) # Gameboard result showing the correct/incorrect colour guesses and the number of colours that were guessed that are in the code
+    print('')
