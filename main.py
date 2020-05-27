@@ -53,22 +53,20 @@ while i == 0: # Main Game Loop
   print('(B)lue, Blac(K), (P)ink, (W)hite')
   print('')
   
-  guess = input ('Code Guess: ')
+  guess = list(input('Code Guess: '))
 
-  guess = list(guess) # Turn guess string into a list
+  print('')
 
-  print(guess) # Test Print
-  print(code)
+  result = [] # List to be displayed on gameboard
 
-  # Test for how many colours guessed are in the code but not necesarrily in the correct place
+  for x, y in zip(code, guess): # Determine whether the guess is correct at each place in the code
+    if x == y:
+      result.append(x)
+    else:
+      result.append('-')
+
   set_guess = set(guess)
   set_code = set(code)
-  common_colours = set_guess & set_code
-  print(list(common_colours))
-      
-
-
-
-
-
+  common_colours = set_guess & set_code # Determines how many of the colours in the guess are in the code but not necessarily in the correct place
   
+  print(' '.join(result) + ' ' + str(len(common_colours))) # Gameboard result showing the correct/incorrect colour guesses and the number of colours that were guessed that are in the code
