@@ -22,6 +22,11 @@ while i == 0: # Main Game Loop
   print('+--------------+')
   print('| Code Breaker |')
   print('+--------------+')
+  print('') # Simple graphic to show colour codes
+  print('Colours')
+  print('-------')
+  print('(R)ed, (O)range, (Y)ellow, (G)reen,')
+  print('(B)lue, Blac(K), (P)ink, (W)hite')
   print('')
   print('Main Menu')
   print('---------')
@@ -41,23 +46,17 @@ while i == 0: # Main Game Loop
 
   if play == '3': # Exit Option
     quit()
-
-  print('') # Simple graphic to show colour codes
-  print('Colours')
-  print('-------')
-  print('(R)ed, (O)range, (Y)ellow, (G)reen,')
-  print('(B)lue, Blac(K), (P)ink, (W)hite')
-  print('')
   
-  
-  colours = ['r', 'o', 'y', 'g', 'b', 'k', 'p', 'w'] # Colour options for code
+  colours = ['R', 'O', 'Y', 'G', 'B', 'K', 'P', 'W'] # Colour options for code
 
   code = random.sample(colours, 5) # Code list sampled from colour options without replacement
   
   guess = [] # Empty list for guess
   while code != guess: # Game loop until guess = code
 
-    guess = list((input('Code Guess: '))
+    guess = (input('Code Guess: ')) # Guess string
+    guess = guess.upper() # Convert to uppercase
+    guess = list(guess) # Convert to list
 
     print('')
 
