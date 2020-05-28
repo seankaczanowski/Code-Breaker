@@ -44,24 +44,23 @@ while i == 0: # Main Game Loop
       print('Error. Please Try Again') 
   print('')
 
-  if play == '3': # Exit Option
+  if play == '2': # Exit Option
     quit()
   
   colours = ['R', 'O', 'Y', 'G', 'B', 'K', 'P', 'W'] # Colour options for code
 
   code = random.sample(colours, 5) # Code list sampled from colour options without replacement
   
+  gameboard = [] # List of results to show game progress
   guess = [] # Empty list for guess
   while code != guess: # Game loop until guess = code
-
     guess = (input('Code Guess: ')) # Guess string
     guess = guess.upper() # Convert to uppercase
     guess = list(guess) # Convert to list
 
-    print('')
+    gameboard.append(guess)
 
-    result = [] # List to be displayed on gameboard
-
+    result = [] # Result of turn to be added to gameboard
     for x, y in zip(code, guess): # Determine whether the guess is correct at each place in the code
       if x == y:
         result.append(x)
@@ -72,6 +71,10 @@ while i == 0: # Main Game Loop
     set_code = set(code)
     common_colours = set_guess & set_code # Determines how many of the colours in the guess are in the code but not necessarily in the correct place
   
-    print(' ' .join(guess))
+    
+    
+    print(' ')
+    for i in range(len(gameboard)): # Gameboard printing
+      print(' '.join(gameboard[i]))
     print(' '.join(result) + ' ' + str(len(common_colours))) # Gameboard result showing the correct/incorrect colour guesses and the number of colours that were guessed that are in the code
     print('')
