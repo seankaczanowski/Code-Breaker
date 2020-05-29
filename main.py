@@ -8,6 +8,8 @@ No copyright
 Simple Code Guessing Game
 - 5 Colour Code
 - 8 Colours to Choose From
+- Gameboard showing current turn and past turns
+- Indicator for how many colours guessed are in the code but not necessarily in the correct order
 '''
 
 import random # For word selection
@@ -17,9 +19,12 @@ while i == 0: # Main Game Loop
 
 # Title Screen / Menu Screen
   print('')
-  print('+--------------+')
-  print('| Code Breaker |')
-  print('+--------------+')
+  print('+-----------------+')
+  print('| C - - -         |')
+  print('| C - D -         |')
+  print('| C O D -         |')
+  print('| C O D E BREAKER |')
+  print('+-----------------+')
   print('') # Simple graphic to show colour codes
   print('Colours')
   print('-------')
@@ -50,12 +55,15 @@ while i == 0: # Main Game Loop
   code = random.sample(colours, 5) # Code list sampled from colour options without replacement
   
   turns = 0 # Number of turns
-  gameboard = [['Gameboard'],['=========']] # List of results to show game progress
+  gameboard = [['CODEBOARD'],['=========']] # List of results to append to show game progress
+
   guess = [] # Empty list for guess
   
-  while code != guess: # Game loop until guess = code
+  win = 0
+  while win == 0: # Game loop until guess = code
+  
     turns += 1 # Turns counter
-
+    
     k = 1
     while k == 1: # Loop to control incorrect input for guess
 
@@ -94,12 +102,12 @@ while i == 0: # Main Game Loop
     gameboard.append(guess) # Add guess turn plus common colours to gameboard
   
     print(' ')
-    for i in range(len(gameboard)): # Gameboard printing
+    for i in range(len(gameboard)): # Gameboard printing of previous turns plus current turn
       print(' '.join(gameboard[i]))
     print(' '.join(result)) # Gameboard result showing the correct/incorrect colour guesses and the number of colours that were guessed that are in the code
     
-
     if guess == code: # Win scenario
+      win = 1
       print(' ')
       print('Correct! You Win!')
       print('Turns: ' + str(turns))
